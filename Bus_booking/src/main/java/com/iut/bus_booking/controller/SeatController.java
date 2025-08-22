@@ -5,6 +5,7 @@ import com.iut.bus_booking.services.SeatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -18,4 +19,12 @@ public class SeatController {
     public List<Seat> getAll() {
         return seatService.findAll();
     }
+
+    @GetMapping("/getAvailableSeats/{date}/{scheduleId}/{busId}")
+    public List<Seat> getAvailableSeats(@PathVariable String date,
+                                        @PathVariable Long scheduleId,
+                                        @PathVariable Long busId) {
+        return seatService.getAvailableSeats(LocalDate.parse(date), scheduleId, busId);
+    }
+
 }

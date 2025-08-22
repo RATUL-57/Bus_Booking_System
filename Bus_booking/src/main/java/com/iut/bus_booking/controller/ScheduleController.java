@@ -18,7 +18,11 @@ public class ScheduleController {
     public List<Schedule> getAll() {
         return scheduleService.findAll();
     }
-    
+
+    @PostMapping("/createSchedule")
+    public Schedule createSchedule(@RequestBody Schedule scheduleRequest) {
+        return scheduleService.createSchedule(scheduleRequest);
+    }
 
 
 }

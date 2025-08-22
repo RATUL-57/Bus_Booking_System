@@ -16,4 +16,9 @@ public class ScheduleService {
     public List<Schedule> findAll() {
         return scheduleRepository.findAll();
     }
+
+    public Schedule createSchedule(Schedule scheduleRequest) {
+        return scheduleRepository.save(scheduleRequest);
+    }
+
 }
